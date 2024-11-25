@@ -1,20 +1,3 @@
-// import globals from "globals";
-// import pluginJs from "@eslint/js";
-// import tseslint from "typescript-eslint";
-// import pluginReact from "eslint-plugin-react";
-//
-//
-// /** @type {import('eslint').Linter.Config[]} */
-// export default [
-//   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
-//   {languageOptions: { globals: globals.browser }},
-//   pluginJs.configs.recommended,
-//   ...tseslint.configs.recommended,
-//   pluginReact.configs.flat.recommended,
-// ];
-//
-//
-
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import globals from "globals";
@@ -86,21 +69,6 @@ export default tseslint.config(
       "react/prop-types": "off",
     },
   },
-
-  // jsx a11y
-  // {
-  //   files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-  //   plugins: {
-  //     "jsx-a11y": jsxA11y,
-  //   },
-  //   languageOptions: {
-  //     parserOptions: {
-  //       ecmaFeatures: {
-  //         jsx: true,
-  //       },
-  //     },
-  //   },
-  // },
 
   {
     files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
