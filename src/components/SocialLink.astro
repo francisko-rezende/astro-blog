@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const { href } = Astro.props;
+---
+
+<a class="hover:text-mocha-pink cursor-pointer transition-colors" href={href}
+  ><slot />
+</a>

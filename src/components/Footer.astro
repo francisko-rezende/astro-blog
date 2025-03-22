@@ -1,0 +1,23 @@
+---
+import LinkedInIcon from "../assets/svgs/linkedin.svg";
+import GithubIcon from "../assets/svgs/github.svg";
+import SocialLink from "./SocialLink.astro";
+---
+
+<footer class="mx-auto flex w-full max-w-2xl justify-between border-t p-4">
+  <ul class="flex w-full justify-end gap-4">
+    <li>
+      <SocialLink>
+        <LinkedInIcon />
+        <span class="sr-only">LinkedIn</span>
+      </SocialLink>
+    </li>
+
+    <li>
+      <SocialLink>
+        <GithubIcon />
+        <span class="sr-only">Github</span>
+      </SocialLink>
+    </li>
+  </ul>
+</footer>
