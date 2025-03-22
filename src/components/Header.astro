@@ -1,0 +1,36 @@
+---
+import HomeLink from "../components/HomeLink.astro";
+import NavLink from "../components/NavLink.astro";
+
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  {
+    text: "About",
+    href: "/",
+    isActive: pathname === "/",
+  },
+  {
+    text: "Posts",
+    href: "/posts",
+    isActive: pathname === "/posts",
+  },
+];
+---
+
+<header class="mx-auto flex w-full max-w-2xl justify-between border-b p-4">
+  <HomeLink />
+  <ul class="flex items-center gap-4">
+    {
+      navLinks.map(({ isActive, href, text }) => {
+        return (
+          <li>
+            <NavLink isActive={isActive} href={href}>
+              {text}
+            </NavLink>
+          </li>
+        );
+      })
+    }
+  </ul>
+</header>

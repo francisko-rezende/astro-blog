@@ -1,14 +1,13 @@
 ---
 import "../styles/global.css";
-import LinkedInIcon from "../assets/svgs/linkedin.svg";
-import GithubIcon from "../assets/svgs/github.svg";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
-const pathname = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -24,57 +23,8 @@ const pathname = Astro.url.pathname;
   <body
     class="bg-mocha-base text-mocha-lavender font-jetbrains-mono grid h-screen grid-rows-[auto_1fr_auto]"
   >
-    <header class="mx-auto flex w-full max-w-2xl justify-between border-b p-4">
-      <a class="group text-4xl" href="/">
-        <span class="sr-only">Home page</span>
-        <span aria-hidden>
-          &lt;<span class="group-hover:text-mocha-pink transition-colors"
-            >F</span
-          >&#47;&gt;
-        </span>
-      </a>
-      <ul class="flex items-center gap-4">
-        <li>
-          <a
-            class={pathname === "/posts"
-              ? "font-bold underline hover:text-mocha-pink transition-colors"
-              : "underline hover:text-mocha-pink transition-colors"}
-            href="/posts">Posts</a
-          >
-        </li>
-        <li>
-          <a
-            class={pathname === "/"
-              ? "font-bold underline hover:text-mocha-pink transition-colors"
-              : "underline hover:text-mocha-pink transition-colors"}
-            href="/">About</a
-          >
-        </li>
-      </ul>
-    </header>
-
+    <Header />
     <slot />
-
-    <footer class="mx-auto flex w-full max-w-2xl justify-between border-t p-4">
-      <ul class="flex w-full justify-end gap-4">
-        <li>
-          <a
-            class="hover:text-mocha-pink cursor-pointer transition-colors"
-            href="https://www.linkedin.com/in/francisko-rezende/"
-            ><LinkedInIcon />
-            <span class="sr-only">LinkedIn</span>
-          </a>
-        </li>
-
-        <li>
-          <a
-            class="hover:text-mocha-pink cursor-pointer transition-colors"
-            href="https://github.com/francisko-rezende"
-            ><GithubIcon />
-            <span class="sr-only">Github</span>
-          </a>
-        </li>
-      </ul>
-    </footer>
+    <Footer />
   </body>
 </html>
