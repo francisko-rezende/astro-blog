@@ -1,6 +1,7 @@
 ---
 import NavLink from "../../components/NavLink.astro";
 import Paragraph from "../../components/Paragraph.astro";
+import Main from "../../components/Main.astro";
 import Title from "../../components/Title.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
@@ -19,7 +20,7 @@ const postsSortedByDescPubDate = (await getCollection("posts")).toSorted(
 ---
 
 <Layout title="Posts">
-  <main class="mx-auto w-full max-w-2xl space-y-4 p-4">
+  <Main>
     <Title>Posts</Title>
     <Paragraph
       >Here you'll find my ramblings about the different things I've been
@@ -32,7 +33,9 @@ const postsSortedByDescPubDate = (await getCollection("posts")).toSorted(
             <li class="grid grid-cols-[1fr_auto] gap-4">
               <span>
                 <h3>
-                  <NavLink href={"#"}>{post.data.title}</NavLink>
+                  <NavLink href={`/posts/${post.id}`}>
+                    {post.data.title}
+                  </NavLink>
                 </h3>
                 <span class="line-clamp-2 text-sm">
                   {post.data.description}
@@ -47,5 +50,5 @@ const postsSortedByDescPubDate = (await getCollection("posts")).toSorted(
         })
       }
     </ul>
-  </main>
+  </Main>
 </Layout>
