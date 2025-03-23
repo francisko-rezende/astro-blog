@@ -53,6 +53,7 @@ h6 {
 }
 
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 @font-face {
   font-family: "JetBrainsMono";

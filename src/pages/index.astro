@@ -2,10 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Paragraph from "../components/Paragraph.astro";
 import Title from "../components/Title.astro";
+import Main from "../components/Main.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="mx-auto w-full max-w-2xl space-y-4 p-4">
+  <Main>
     <Title>Hei, what's up?</Title>
     <Paragraph>
       I'm <span class="font-bold">Francisko</span>, a <span
@@ -34,5 +35,5 @@ import Title from "../components/Title.astro";
       I'm planning on using this blog as way to document my learnings, hope
       someone finds it useful :)
     </Paragraph>
-  </main>
+  </Main>
 </Layout>
