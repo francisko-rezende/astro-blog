@@ -1,23 +1,35 @@
 ---
 import LinkedInIcon from "../assets/svgs/linkedin.svg";
-import GithubIcon from "../assets/svgs/github.svg";
+import GitHubIcon from "../assets/svgs/github.svg";
 import SocialLink from "./SocialLink.astro";
+
+const links = [
+  {
+    text: "LinkedIn",
+    IconComponent: LinkedInIcon,
+    href: "https://www.linkedin.com/in/francisko-rezende/",
+  },
+  {
+    text: "GitHub",
+    IconComponent: GitHubIcon,
+    href: "https://github.com/francisko-rezende",
+  },
+];
 ---
 
-<footer class="mx-auto flex w-full max-w-2xl justify-between border-t p-4">
+<footer class="mx-auto flex w-full max-w-3xl justify-between border-t p-4">
   <ul class="flex w-full justify-end gap-4">
-    <li>
-      <SocialLink>
-        <LinkedInIcon />
-        <span class="sr-only">LinkedIn</span>
-      </SocialLink>
-    </li>
-
-    <li>
-      <SocialLink>
-        <GithubIcon />
-        <span class="sr-only">Github</span>
-      </SocialLink>
-    </li>
+    {
+      links.map(({ href, IconComponent, text }) => {
+        return (
+          <li>
+            <SocialLink href={href}>
+              <IconComponent />
+              <span class="sr-only">{text}</span>
+            </SocialLink>
+          </li>
+        );
+      })
+    }
   </ul>
 </footer>
