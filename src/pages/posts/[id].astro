@@ -18,10 +18,10 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={post.title}>
+<Layout title={post.data.title}>
   <Main>
     <div>
-      <Title>{post.title}</Title>
+      <Title>{post.data.title}</Title>
       <NavLink href={"/posts"}>Back to post list</NavLink>
     </div>
     <Prose><Content /></Prose>
