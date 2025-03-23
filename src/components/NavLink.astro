@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 const { isActive, href } = Astro.props;

@@ -1,5 +1,51 @@
 ---
+import NavLink from "../../components/NavLink.astro";
+import Paragraph from "../../components/Paragraph.astro";
+import Title from "../../components/Title.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const postsSortedByDescPubDate = (await getCollection("posts")).toSorted(
+  (a, b) => {
+    const convertToEpochTime = (dateString: string) => {
+      return new Date(dateString).getTime();
+    };
+
+    return (
+      convertToEpochTime(b.data.pubDate) - convertToEpochTime(a.data.pubDate)
+    );
+  },
+);
 ---
 
-<Layout title="Posts">Posts</Layout>
+<Layout title="Posts">
+  <main class="mx-auto w-full max-w-2xl space-y-4 p-4">
+    <Title>Posts</Title>
+    <Paragraph
+      >Here you'll find my ramblings about the different things I've been
+      looking into</Paragraph
+    >
+    <ul class="space-y-4">
+      {
+        postsSortedByDescPubDate.map((post) => {
+          return (
+            <li class="grid grid-cols-[1fr_auto] gap-4">
+              <span>
+                <h3>
+                  <NavLink href={"#"}>{post.data.title}</NavLink>
+                </h3>
+                <span class="line-clamp-2 text-sm">
+                  {post.data.description}
+                </span>
+              </span>
+
+              <time class="text-sm" datetime={post.data.pubDate}>
+                {post.data.pubDate}
+              </time>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
