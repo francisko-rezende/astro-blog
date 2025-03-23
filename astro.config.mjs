@@ -14,5 +14,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  markdown: {
+    shikiConfig: {
+      theme: "catppuccin-frappe",
+    },
+  },
 });
-
